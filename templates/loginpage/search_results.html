@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="static/css/style1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  <style>
+    body .table{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    h1{
+      margin-top: -570px;
+      margin-left: 500px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      border: 1px solid black;
+      margin-top: -200px;
+      margin-left: 100px;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    td:last-child {
+      border-right: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="/home">Somakey Assistant</a>
+      </div>
+      <ul>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Search
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/namesearch">Name Search</a>
+              <a href="/descsearch">Description Search</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="/signout">Sign out</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="img"></div>
+  <h1>Search Results</h1>
+  <div class="center">  
+    
+    <table>
+      <tr>
+        <th>Website</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Rating</th>
+        <th>Reviews</th>
+        <th>Availability</th>
+      </tr>
+      {% for product in products %}
+      <tr>
+        <td>Amazon</td>
+        <td><a href="{{ product.link }}" target="_blank">{{ product.title }}</a></td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.rating }}</td>
+        <td>{{ product.reviews }}</td>
+        <td>{{ product.availability }}</td>
+      </tr>
+      {% endfor %}
+      {% for product in products1 %}
+    <tr>
+      <td>eBay</td>
+      <td><a href="{{ product.link }}" target="_blank">{{ product.title }}</a></td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.rating }}</td>
+      <td>{{ product.reviews }}</td>
+      <td>-</td>  <!-- eBay products may not have availability information -->
+    </tr>
+    {% endfor %}
+    </table>
+  </div>
+</body>
+</html>

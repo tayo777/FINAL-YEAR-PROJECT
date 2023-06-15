@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="static/css/style.css" />
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <title>Sign up</title>
+    </head>
+    <body>
+        <div class="center">
+            <input type="checkbox" id="show" />
+            <label for="show" class="show-btn">Click to register</label>
+            <div class="container">
+                <label
+                    for="show"
+                    class="close-btn fas fa-times"
+                    title="close"
+                ></label>
+                
+                <div class="text">Signup</div>
+                <form action="/signup" method="post">
+                {% csrf_token %}    
+                    <div class="data">
+                        <label>First Name</label>
+                        <input type="text" name='fname' required />
+                    </div>
+                    <div class="data">
+                        <label>Last Name</label>
+                        <input type="text" name="lname" required />
+                    </div>
+                    <div class="data">
+                        <label>Email</label>
+                        <input type="text" name="email" required />
+                    </div>
+                    <div class="data">
+                        <label>Password</label>
+                        <input type="password" name="password" required />
+                    </div>
+                    <div class="forgot-pass">
+                        <a href="/home">Back To Home</a>
+                    </div>
+                    
+                    <div class="btn">
+                        <div class="inner"></div>
+                        <button type="submit">Sign up</button>
+                    </div>
+                    <div class="signup-link">
+                        Already a member? <a href="/signin">Log in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

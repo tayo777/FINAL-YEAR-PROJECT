@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Search</title>
+    <link rel="stylesheet" href="static/css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+   </head>
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="/home">Somakey Assistant</a>
+      </div>
+      <ul>
+        <li><div class="dropdown">
+            <button class="dropbtn">Search
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Name Search</a>
+              <a href="/descsearch">Description Search</a>
+            </div></li>
+        </ul>
+        <ul>
+
+        <li><a href="/signin">Sign in</a></li>
+        <li><a href="/signout">Sign out</a></li>
+    </ul>
+      
+    </div>
+  </nav>
+  <div class="img"></div>
+  <form action="{% url 'search_results' %}" method="GET">
+  {% csrf_token %}  
+  <div class="center">  
+    <input type="text" name="query" placeholder="Search Product By Name" /> 
+    <div class="btns">
+        <button type="submit">Search</button>
+      
+    </div>
+
+  </div>
+</form>
+</body>
+</html>
